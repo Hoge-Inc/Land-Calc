@@ -75,8 +75,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <input id='idInput' className='id' placeholder='token id #' value={land?.tokenId} 
-          onChange={async(e: React.ChangeEvent<HTMLInputElement>)=> {
+        <input id='idInput' className='id' placeholder='token id #'  
+          onChange={async (e: React.ChangeEvent<HTMLInputElement>)=> {
+            e.preventDefault();
             const id = e.target.value
             if (parseInt(id) > 0 && parseInt(id) <= 10000) {
               setLand(await getData(id))
