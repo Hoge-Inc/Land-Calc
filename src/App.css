@@ -1,15 +1,34 @@
+.cords{
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+}
+.cords .x,.y,.z {
+  margin-left: 2vh;
+  margin-right: 2vh;
+  margin-top: .5vh;
+  margin-bottom: 1.5vh;
+}
+input{
+  font-size: 22px;
+  width: 65px;
+  text-align: center;
+}
+.yield{
+  font-size: 2em;
+  margin: 15px;
+}
 .App {
   text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 15vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 15s linear;
   }
 }
 
@@ -20,7 +39,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
   color: white;
 }
 
