@@ -1,0 +1,30 @@
+const Display = () => {
+    if (!land) {return <></>}
+    return (
+      <div className='land'>
+        <h6>
+          Token ID : {land.tokenId} <br/>
+          <div hidden={land.defence === 'None'}>
+            Defence : {land.defence}
+          </div>
+          <div className='cords'>
+            <div className='x'>X : {land.cords.get('x')} </div>
+            <div className='y'>Y : {land.cords.get('y')} </div>
+            <div className='z'>Z : {land.cords.get('z')} </div>
+          </div> 
+          <br/>
+          Total {land.resource} Yield : 
+          <span className='yield'>{land.bonus  ? land.total : land.yield}</span>
+        </h6>
+        <div hidden={!land.settlement}>
+          {land.settlement} Bonus : {land.bonus}%
+        </div>
+        <picture>
+          <a href={opensea + land.tokenId} title='Opensea.io'>
+            <img src={land.image} alt={land.tokenId} width='40%' />
+          </a>
+        </picture> 
+      </div>
+      
+    )
+  }
