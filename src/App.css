@@ -25,10 +25,7 @@ input{
   width: 65px;
   text-align: center;
 }
-.yield{
-  font-size: 2em;
-  margin: 15px;
-}
+
 .App {
   text-align: center;
 }
@@ -71,10 +68,10 @@ input{
   padding-bottom: 7.4%;
 }
 .hex {
-  width: 33.333%; /* = 100 / 3 */
+  width: 33.333%; 
 }
-.hex:nth-child(5n+1){ /* first hexagon of even rows */
-  margin-left:16.666%;  /* = width of .hex / 2  to indent even rows */
+.hex:nth-child(5n+1){ 
+  margin-left:16.666%; 
 }
 
 #hexGrid {
@@ -84,7 +81,6 @@ input{
   margin: 0 auto;
   overflow: hidden;
   font-family: 'Raleway', sans-serif;
-  font-size: 15px;
   list-style-type: none;
 }
 
@@ -115,7 +111,8 @@ input{
   visibility: visible;
   outline:1px solid transparent; /* fix for jagged edges in FF on hover transition */
 }
-.hexLink {
+.hexDiv {
+  
     display:block;
     width: 100%;
     height: 100%;
@@ -149,9 +146,12 @@ input{
           transition:          transform .2s ease-out, opacity .3s ease-out;
 }
 .hex h1 {
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  height: 75%;
   bottom: 50%;
   padding-top:50%;
-  font-size: 1.5em;
   z-index: 1;
   -webkit-transform:translate3d(0,-100%,0);
       -ms-transform:translate3d(0,-100%,0);
@@ -159,7 +159,7 @@ input{
 }
 .hex h1::after {
   content: '';
-  position: absolute;
+  position: relative;
   bottom: 0;
   left: 45%;
   width: 10%;
@@ -174,11 +174,93 @@ input{
           transform:translate3d(0,100%,0);
 }
 
+.hex .btn {
+  margin: 0;
+  position: relative;
+  top: 33%;
+}
 
+.yield{
+  position: relative;
+  font-size: 1.5em;
+  
+}
 /*** HOVER EFFECT  **********************************************************************/
-.hexLink:hover h1, .hexLink:focus h1,
-.hexLink:hover p, .hexLink:focus p{
+.hexDiv:hover h1, .hexDiv:focus h1,
+.hexDiv:hover p, .hexDiv:focus p{
   -webkit-transform:translate3d(0,0,0);
       -ms-transform:translate3d(0,0,0);
           transform:translate3d(0,0,0);
+}
+
+/*** HEXAGON SIZING AND EVEN ROW INDENTATION *****************************************************************/
+@media (min-width:1201px) { /* <- 5-4  hexagons per row */
+  .hex .btn {
+    font-size: var(--large-font);
+  }
+  .hex h1{
+    font-size: var(--large-font);
+
+  } 
+  .hex p {
+    font-size: var(--large-font);
+  }
+}
+
+@media (max-width: 1200px) and (min-width:901px) { /* <- 4-3  hexagons per row */
+  .hex .btn {
+    font-size: var(--large-font);
+  }
+  .hex h1{
+    font-size: var(--large-font);
+
+  } 
+  .hex p {
+    font-size: var(--large-font);
+  }
+}
+
+@media (max-width: 900px) and (min-width:601px) { /* <- 3-2  hexagons per row */
+  .hex .btn {
+    font-size: var(--medium-font);
+  }
+  .hex h1{
+    font-size: medium;
+
+  } 
+  .hex p {
+    font-size: var(--medium-font);
+  }
+}
+
+@media (max-width: 600px) { /* <- 2-1  hexagons per row */
+  .hex .btn {
+    font-size: var(--small-font);
+  }
+  .hex h1{
+    font-size: var(--medium-font);
+
+  } 
+  .hex p {
+    font-size: var(--medium-font);
+  }
+}
+
+@media (max-width: 400px) {
+    .hex .btn {
+      font-size: smaller;
+      padding: 2px;
+    }
+    .hex h1{
+      font-size: var(--small-font);      
+
+    } 
+    .hex p {
+      font-size: var(--small-font);
+    }
+}
+:root{
+  --small-font: 8px;
+  --medium-font: 13px;
+  --large-font:15;
 }

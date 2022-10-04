@@ -126,20 +126,21 @@ const makeHex = (id:number, number:number) => {
       if (!land) continue
       const hex = React.createElement('li', {key:'somekey'+i,className:'hex'},
       <div className="hexIn">
-        <a className="hexLink" href={opensea + land.tokenId}>
+        <div className="hexDiv">
           <img src={land.image} alt="" />
           <h1>
-            Land#{land.tokenId}<br/>
-            X:{land.cords.get('x')} Y:{land.cords.get('y')} Z:{land.cords.get('z')}
+            <span className='yield'>{land.bonus  ? land.total : land.yield}</span>
+            <br/>Total {land.resource} Yield 
+            
+            <div hidden={!land.settlement} >{land.settlement}  Bonus : {land.bonus}%</div>
+            <div hidden={!land.defence || land.defence === 'None'} >Defence : {land.defence} </div>
           </h1>
           <p>
-            Total {land.resource} Yield : {land.bonus  ? land.total : land.yield}
-            <br/>
-            { !land.settlement ? <></> : land.settlement + ' Bonus : ' + land.bonus + '%' }
-            <br/>
-            { !land.defence || land.defence === 'None' ? <></> : 'Defence : ' + land.defence }
+            Land #{land.tokenId}<br/>
+            X:{land.cords.get('x')} Y:{land.cords.get('y')} Z:{land.cords.get('z')}<br/>
+            <button className='btn' onClick={() => window.open(opensea + land.tokenId, "_blank")}>Opensea.io</button>
           </p>
-        </a>
+        </div>
       </div>
       )
       html.push(hex)
