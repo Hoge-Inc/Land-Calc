@@ -80,12 +80,12 @@ function App() {
 
 const getData = async (tokenId:number) => {
   let someLand = new Land()
-    const data = await fetch('https://dweb.link/ipfs/' + metadataIpfs +'/' + tokenId + '.json' )
+    const data = await fetch('https://hogeinc.mypinata.cloud/ipfs/' + metadataIpfs +'/' + tokenId + '.json' )
     .then((response) => response.json())
     .then((data) => {  return data });
     
     someLand.tokenId = tokenId
-    someLand.image = 'https://dweb.link/ipfs/' + data.image?.slice(7, data.image.length)
+    someLand.image = 'https://hogeinc.mypinata.cloud/ipfs/' + data.image?.slice(7, data.image.length)
     const attributes = JSON.parse(JSON.stringify(data.attributes))
     attributes.forEach((a: any) => {
       const tt = a.trait_type
